@@ -87,6 +87,38 @@ bool Solution::isSameTree(TreeNode* p, TreeNode* q) {
 	return false;
 }
 
+bool Solution::isSymmetricA(TreeNode* left,TreeNode* right) {
+	if (left == NULL && right == NULL) {
+		return true;
+	}
+	if ((left == NULL && right != NULL) || (left != NULL && right == NULL)) {
+		return false;
+	}
+	if (left->val == right->val) {
+		if (isSymmetricA(left->left,right->right)) {
+			return isSymmetricA(left->right, right->left);
+		}
+	}
+}
+
+bool Solution::isSymmetric(TreeNode* root) {
+	if (root == NULL) {
+		return true;
+	}
+	return isSymmetricA(root->left, root->right);
+}
+void getList(vector<TreeNode*> node, vector<vector<int>>& result) {
+	vector<int> res;
+	for (auto i = node.begin(); i != node.end(); i++)
+	{
+		res.push_back((*i)->val);
+	}
+	return;
+}
+vector<vector<int>> Solution::levelOrder(TreeNode* root) {
+
+}
+
 Solution::~Solution()
 {
 }

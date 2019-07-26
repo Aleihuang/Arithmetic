@@ -19,7 +19,9 @@ public:
 	bool isValidBST(TreeNode* root);
 	void recoverTree(TreeNode* root);
 	bool isSameTree(TreeNode* p, TreeNode* q);
+	bool isSymmetric(TreeNode* root);
 private:
 	void getData(TreeNode* tree, vector<int>& value);
+	bool isSymmetricA(TreeNode* left, TreeNode* right);
 };
 
